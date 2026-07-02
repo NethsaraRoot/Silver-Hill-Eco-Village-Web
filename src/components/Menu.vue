@@ -143,6 +143,18 @@
 </template>
 
 <script>
+// ── Local image imports (place your files inside src/assets/) ──
+// Oyage real image files dala mehi filename witharak wenas karanna,
+// variable names (ph, ph1, ph2...) ekama tiyaganna puluwan.
+import ph from '../assets/foods/11.png'
+import ph1 from '../assets/foods/2.png'
+import ph2 from '../assets/foods/8.png'
+import ph3 from '../assets/foods/10.png'
+import ph4 from '../assets/foods/1.png'
+import ph5 from '../assets/foods/1.png'
+import ph6 from '../assets/foods/1.png'
+import ph7 from '../assets/foods/1.png'
+
 export default {
   name: 'RestaurantMenu',
 
@@ -171,7 +183,7 @@ export default {
               description:
                 'Handmade string hoppers served with traditional Sri Lankan curry, fresh coconut sambal, and village-style side dishes.',
               tags: ['Traditional', 'Village Style', 'Fresh Coconut Sambal'],
-              img: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=800&q=80',
+              img: ph,
               detail: {
                 servingTime: '7:00 AM – 10:30 AM',
                 style: 'Village Style',
@@ -185,7 +197,7 @@ export default {
               description:
                 'Homemade coconut roti served with curry leaves sambal, butter spread, and tropical fruit jam.',
               tags: ['Homemade', 'Butter & Jam', 'Authentic Recipe'],
-              img: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=80',
+              img: ph1,
               detail: {
                 servingTime: '7:00 AM – 10:30 AM',
                 style: 'Homemade',
@@ -199,7 +211,7 @@ export default {
               description:
                 'Traditional creamy milk rice served with spicy homemade lunu miris prepared in authentic Sri Lankan style.',
               tags: ['Traditional', 'Spicy', 'Village Flavor'],
-              img: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80',
+              img: ph2,
               detail: {
                 servingTime: '7:00 AM – 10:00 AM',
                 style: 'Ceremonial',
@@ -213,7 +225,7 @@ export default {
               description:
                 'Freshly roasted bread served with butter, sweet fruit jam, and a fluffy omelette made from farm fresh eggs.',
               tags: ['Fresh Eggs', 'Light Breakfast', 'Farm Fresh'],
-              img: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&q=80',
+              img: ph3,
               detail: {
                 servingTime: '7:00 AM – 11:00 AM',
                 style: 'Continental',
@@ -237,7 +249,7 @@ export default {
               description:
                 'Freshly prepared traditional Sri Lankan rice cooked daily with aromatic pandan leaves and a touch of coconut oil.',
               tags: ['Fresh Daily', 'Traditional'],
-              img: 'https://images.unsplash.com/photo-1596097559816-1c7a7d31b3df?w=800&q=80',
+              img: ph4,
               detail: {
                 servingTime: '12:00 PM – 9:00 PM',
                 style: 'Traditional',
@@ -251,7 +263,7 @@ export default {
               description:
                 'Authentic village-style vegetable curries prepared with local herbs and spices, served with coconut milk gravy.',
               tags: ['Healthy', 'Village Vegetables'],
-              img: 'https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=800&q=80',
+              img: ph5,
               detail: {
                 servingTime: '12:00 PM – 9:00 PM',
                 style: 'Village Style',
@@ -265,7 +277,7 @@ export default {
               description:
                 'Rich and flavorful Sri Lankan meat curry with homemade spices, slow-cooked to perfection with roasted coconut.',
               tags: ['Spicy', 'Homemade Recipe'],
-              img: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80',
+              img: ph6,
               detail: {
                 servingTime: '12:00 PM – 9:00 PM',
                 style: 'Slow Cooked',
@@ -279,7 +291,7 @@ export default {
               description:
                 'Juicy grilled chicken marinated with authentic Sri Lankan herbs and spices, charcoal-grilled over open flame.',
               tags: ['Chef Special', 'Authentic Spices'],
-              img: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c7?w=800&q=80',
+              img: ph7,
               detail: {
                 servingTime: '12:00 PM – 9:00 PM',
                 style: 'Charcoal Grilled',
