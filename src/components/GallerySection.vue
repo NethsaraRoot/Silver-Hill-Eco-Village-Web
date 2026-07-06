@@ -142,13 +142,32 @@ import event2 from '../assets/Events/2.jpeg'
 import event3 from '../assets/Events/3.jpeg'
 import event4 from '../assets/Events/4.jpeg'
 
-// ─── Nature & Birds Images ───────────────────────────
+// ─── Nature & Birds Images (23) ───────────────────────
 // Oyage real photo files "src/assets/nature/" folder ekata dala,
-// filenames witharak wenas karanna
-import nature1 from '../assets/Events/2.jpeg'
-import nature2 from '../assets/Events/2.jpeg'
-import nature3 from '../assets/Events/2.jpeg'
-import nature4 from '../assets/Events/2.jpeg'
+// filenames witharak wenas karanna (1.png, 2.png ... 23.png wagee)
+import nature1 from '../assets/Birds/1.png'
+import nature2 from '../assets/Birds/2.png'
+import nature3 from '../assets/Birds/3.png'
+import nature4 from '../assets/Birds/4.png'
+import nature5 from '../assets/Birds/5.png'
+import nature6 from '../assets/Birds/6.png'
+import nature7 from '../assets/Birds/7.png'
+import nature8 from '../assets/Birds/8.png'
+import nature9 from '../assets/Birds/9.png'
+import nature10 from '../assets/Birds/10.png'
+import nature11 from '../assets/Birds/11.png'
+import nature12 from '../assets/Birds/12.png'
+import nature13 from '../assets/Birds/13.png'
+import nature14 from '../assets/Birds/14.png'
+import nature15 from '../assets/Birds/15.png'
+import nature16 from '../assets/Birds/16.png'
+import nature17 from '../assets/Birds/17.png'
+import nature18 from '../assets/Birds/18.png'
+import nature19 from '../assets/Birds/19.png'
+import nature20 from '../assets/Birds/20.png'
+import nature21 from '../assets/Birds/21.png'
+import nature22 from '../assets/Birds/22.png'
+import nature23 from '../assets/Birds/23.png'
 
 // ─── Tabs ─────────────────────────────────────────────
 const tabs = [
@@ -167,6 +186,79 @@ const setTab = (key) => {
   activeTab.value = key
   showMore.value = false
 }
+
+// ─── Nature labels (cycled across the 23 photos) ──────
+const natureLabels = [
+  'Morning Birdsong',
+  'Garden Trails',
+  'Colourful Visitors',
+  'Eco Village Grounds',
+  'Sunrise Over the Hills',
+  'Butterfly Corner',
+  'Pond Reflections',
+  'Nesting Season',
+  'Forest Canopy',
+  'Wild Orchids',
+  'Village Sparrows',
+  'Misty Morning Walk',
+  'Kingfisher Watch',
+  'Rustling Bamboo Grove',
+  'Evening Chorus',
+  'Streamside Ferns',
+  'Peacock Sighting',
+  'Wildflower Meadow',
+  'Treetop Perch',
+  'Golden Hour Flight',
+  'Hidden Nest',
+  'Quiet Pathways',
+  'Eco Village Wildlife',
+]
+
+const natureGradients = [
+  'linear-gradient(135deg,#2d5a3d,#4a8c5c)',
+  'linear-gradient(135deg,#3d6b4f,#5a9970)',
+  'linear-gradient(135deg,#c9a84c,#e8c97a)',
+  'linear-gradient(135deg,#2d5a3d,#1a3a2a)',
+]
+
+const natureImages = [
+  nature1,
+  nature2,
+  nature3,
+  nature4,
+  nature5,
+  nature6,
+  nature7,
+  nature8,
+  nature9,
+  nature10,
+  nature11,
+  nature12,
+  nature13,
+  nature14,
+  nature15,
+  nature16,
+  nature17,
+  nature18,
+  nature19,
+  nature20,
+  nature21,
+  nature22,
+  nature23,
+]
+
+const natureItems = natureImages.map((src, i) => ({
+  id: 5 + i,
+  src,
+  emoji: '🐦',
+  label: natureLabels[i % natureLabels.length],
+  gradient: natureGradients[i % natureGradients.length],
+  category: 'nature',
+  categoryIcon: '🐦',
+  categoryLabel: 'Nature & Birds',
+  size: '', // uniform box — no wide/tall variants
+  fallback: false,
+}))
 
 // ─── Photos ───────────────────────────────────────────
 const photos = reactive([
@@ -220,55 +312,8 @@ const photos = reactive([
     fallback: false,
   },
 
-  // ── Nature & Birds (4) ─────────────────────────────
-  {
-    id: 5,
-    src: nature1,
-    emoji: '🐦',
-    label: 'Morning Birdsong',
-    gradient: 'linear-gradient(135deg,#2d5a3d,#4a8c5c)',
-    category: 'nature',
-    categoryIcon: '🐦',
-    categoryLabel: 'Nature & Birds',
-    size: 'wide',
-    fallback: false,
-  },
-  {
-    id: 6,
-    src: nature2,
-    emoji: '🌿',
-    label: 'Garden Trails',
-    gradient: 'linear-gradient(135deg,#3d6b4f,#5a9970)',
-    category: 'nature',
-    categoryIcon: '🐦',
-    categoryLabel: 'Nature & Birds',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 7,
-    src: nature3,
-    emoji: '🦜',
-    label: 'Colourful Visitors',
-    gradient: 'linear-gradient(135deg,#c9a84c,#e8c97a)',
-    category: 'nature',
-    categoryIcon: '🐦',
-    categoryLabel: 'Nature & Birds',
-    size: 'tall',
-    fallback: false,
-  },
-  {
-    id: 8,
-    src: nature4,
-    emoji: '🌳',
-    label: 'Eco Village Grounds',
-    gradient: 'linear-gradient(135deg,#2d5a3d,#1a3a2a)',
-    category: 'nature',
-    categoryIcon: '🐦',
-    categoryLabel: 'Nature & Birds',
-    size: '',
-    fallback: false,
-  },
+  // ── Nature & Birds (23) ────────────────────────────
+  ...natureItems,
 ])
 
 // ─── Computed ─────────────────────────────────────────
