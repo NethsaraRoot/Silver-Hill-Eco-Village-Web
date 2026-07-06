@@ -136,49 +136,25 @@
 <script setup>
 import { ref, computed, reactive } from 'vue'
 
-// ─── Food Images ─────────────────────────────────────
-import food1 from '../assets/foods/1.png'
-import food2 from '../assets/foods/2.png'
-import food3 from '../assets/foods/3.png'
-import food4 from '../assets/foods/4.jpeg'
-import food5 from '../assets/foods/5.jpeg'
-import food6 from '../assets/foods/6.png'
-import food7 from '../assets/foods/7.png'
-import food8 from '../assets/foods/8.png'
-import food9 from '../assets/foods/9.png'
-import food10 from '../assets/foods/10.png'
-import food11 from '../assets/foods/11.png'
-import food12 from '../assets/foods/12.png'
-
-// ─── Drinks Images ───────────────────────────────────
-import drink1 from '../assets/drinks/1.jpeg'
-import drink2 from '../assets/drinks/2.jpeg'
-import drink3 from '../assets/drinks/3.jpeg'
-import drink4 from '../assets/drinks/4.jpeg'
-import drink5 from '../assets/drinks/5.png'
-import drink6 from '../assets/drinks/6.png'
-import drink7 from '../assets/drinks/7.png'
-import drink8 from '../assets/drinks/8.png'
-import drink9 from '../assets/drinks/9.png'
-import drink10 from '../assets/drinks/10.png'
-import drink11 from '../assets/drinks/11.png'
-import drink12 from '../assets/drinks/12.png'
-import drink13 from '../assets/drinks/13.png'
-import drink14 from '../assets/drinks/14.jpeg'
-import drink15 from '../assets/drinks/15.jpeg'
-
 // ─── Events Images ───────────────────────────────────
 import event1 from '../assets/Events/1.png'
 import event2 from '../assets/Events/2.jpeg'
 import event3 from '../assets/Events/3.jpeg'
 import event4 from '../assets/Events/4.jpeg'
 
+// ─── Nature & Birds Images ───────────────────────────
+// Oyage real photo files "src/assets/nature/" folder ekata dala,
+// filenames witharak wenas karanna
+import nature1 from '../assets/Events/2.jpeg'
+import nature2 from '../assets/Events/2.jpeg'
+import nature3 from '../assets/Events/2.jpeg'
+import nature4 from '../assets/Events/2.jpeg'
+
 // ─── Tabs ─────────────────────────────────────────────
 const tabs = [
   { key: 'all', icon: '🖼', label: 'All' },
-  { key: 'food', icon: '🍛', label: 'Food' },
-  { key: 'drinks', icon: '🍹', label: 'Drinks' },
   { key: 'events', icon: '🎉', label: 'Events' },
+  { key: 'nature', icon: '🐦', label: 'Nature & Birds' },
 ]
 
 const activeTab = ref('all')
@@ -194,337 +170,9 @@ const setTab = (key) => {
 
 // ─── Photos ───────────────────────────────────────────
 const photos = reactive([
-  // ── Food (12) ──────────────────────────────────────
-  {
-    id: 1,
-    src: food1,
-    emoji: '🍛',
-    label: 'Rice & Curry Spread',
-    gradient: 'linear-gradient(135deg,#2d5a3d,#4a8c5c)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: 'wide',
-    fallback: false,
-  },
-  {
-    id: 2,
-    src: food2,
-    emoji: '🍜',
-    label: 'Pol Rotti',
-    gradient: 'linear-gradient(135deg,#c9a84c,#e8c97a)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 3,
-    src: food3,
-    emoji: '🥘',
-    label: "Chef's Special Kottu",
-    gradient: 'linear-gradient(135deg,#8b4513,#cd853f)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 4,
-    src: food4,
-    emoji: '🍱',
-    label: 'Lunchbox Platter',
-    gradient: 'linear-gradient(135deg,#3d6b4f,#5a9970)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: 'tall',
-    fallback: false,
-  },
-  {
-    id: 5,
-    src: food5,
-    emoji: '🫕',
-    label: 'Slow-Cooked Curry',
-    gradient: 'linear-gradient(135deg,#7b3f00,#c47b2b)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 6,
-    src: food6,
-    emoji: '🍢',
-    label: 'Street Food Special',
-    gradient: 'linear-gradient(135deg,#2d5a3d,#4a8c5c)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 7,
-    src: food7,
-    emoji: '🥗',
-    label: 'Fresh Garden Salad',
-    gradient: 'linear-gradient(135deg,#c9a84c,#e8c97a)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: 'wide',
-    fallback: false,
-  },
-  {
-    id: 8,
-    src: food8,
-    emoji: '🍲',
-    label: 'Hot Pot Delight',
-    gradient: 'linear-gradient(135deg,#8b4513,#cd853f)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 9,
-    src: food9,
-    emoji: '🥩',
-    label: 'Grilled Perfection',
-    gradient: 'linear-gradient(135deg,#3d6b4f,#5a9970)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 10,
-    src: food10,
-    emoji: '🫔',
-    label: 'Wrap of the Day',
-    gradient: 'linear-gradient(135deg,#7b3f00,#c47b2b)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 11,
-    src: food11,
-    emoji: '🍤',
-    label: 'Crispy Fried Delight',
-    gradient: 'linear-gradient(135deg,#2d5a3d,#4a8c5c)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 12,
-    src: food12,
-    emoji: '🧆',
-    label: "Chef's Secret Recipe",
-    gradient: 'linear-gradient(135deg,#c9a84c,#e8c97a)',
-    category: 'food',
-    categoryIcon: '🍛',
-    categoryLabel: 'Food',
-    size: '',
-    fallback: false,
-  },
-
-  // ── Drinks (15) ────────────────────────────────────
-  {
-    id: 13,
-    src: drink1,
-    emoji: '🍹',
-    label: 'Tropical Cooler',
-    gradient: 'linear-gradient(135deg,#1e90ff,#87ceeb)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: 'wide',
-    fallback: false,
-  },
-  {
-    id: 14,
-    src: drink2,
-    emoji: '🥤',
-    label: 'Fresh Lime Soda',
-    gradient: 'linear-gradient(135deg,#27ae60,#a8e063)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 15,
-    src: drink3,
-    emoji: '☕',
-    label: 'Signature Coffee',
-    gradient: 'linear-gradient(135deg,#4b2c0e,#9b6a3c)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 16,
-    src: drink4,
-    emoji: '🧃',
-    label: 'Fresh Fruit Blend',
-    gradient: 'linear-gradient(135deg,#f7971e,#ffd200)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 17,
-    src: drink5,
-    emoji: '🍵',
-    label: 'Herbal Tea Special',
-    gradient: 'linear-gradient(135deg,#2d5a3d,#4a8c5c)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: 'tall',
-    fallback: false,
-  },
-  {
-    id: 18,
-    src: drink6,
-    emoji: '🥛',
-    label: 'Creamy Milkshake',
-    gradient: 'linear-gradient(135deg,#c9a84c,#e8c97a)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 19,
-    src: drink7,
-    emoji: '🍋',
-    label: 'Zesty Lemonade',
-    gradient: 'linear-gradient(135deg,#f7971e,#ffd200)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 20,
-    src: drink8,
-    emoji: '🫖',
-    label: 'Ceylon Tea Brew',
-    gradient: 'linear-gradient(135deg,#8b4513,#cd853f)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: 'wide',
-    fallback: false,
-  },
-  {
-    id: 21,
-    src: drink9,
-    emoji: '🍓',
-    label: 'Berry Smoothie',
-    gradient: 'linear-gradient(135deg,#c0392b,#e74c3c)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 22,
-    src: drink10,
-    emoji: '🥝',
-    label: 'Kiwi Cooler',
-    gradient: 'linear-gradient(135deg,#27ae60,#a8e063)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 23,
-    src: drink11,
-    emoji: '🫐',
-    label: 'Blueberry Blast',
-    gradient: 'linear-gradient(135deg,#1e90ff,#87ceeb)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 24,
-    src: drink12,
-    emoji: '🍊',
-    label: 'Orange Sunrise',
-    gradient: 'linear-gradient(135deg,#f7971e,#ffd200)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 25,
-    src: drink13,
-    emoji: '🍇',
-    label: 'Grape Refresher',
-    gradient: 'linear-gradient(135deg,#8e44ad,#c39bd3)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 26,
-    src: drink14,
-    emoji: '🥭',
-    label: 'Mango Magic',
-    gradient: 'linear-gradient(135deg,#f7971e,#ffd200)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-  {
-    id: 27,
-    src: drink15,
-    emoji: '🍈',
-    label: 'Melon Chill',
-    gradient: 'linear-gradient(135deg,#27ae60,#a8e063)',
-    category: 'drinks',
-    categoryIcon: '🍹',
-    categoryLabel: 'Drinks',
-    size: '',
-    fallback: false,
-  },
-
   // ── Events (4) ─────────────────────────────────────
   {
-    id: 28,
+    id: 1,
     src: event1,
     emoji: '🎉',
     label: 'Birthday Night',
@@ -536,7 +184,7 @@ const photos = reactive([
     fallback: false,
   },
   {
-    id: 29,
+    id: 2,
     src: event2,
     emoji: '🥂',
     label: 'Anniversary Dinner',
@@ -548,7 +196,7 @@ const photos = reactive([
     fallback: false,
   },
   {
-    id: 30,
+    id: 3,
     src: event3,
     emoji: '🎊',
     label: 'Corporate Lunch',
@@ -560,7 +208,7 @@ const photos = reactive([
     fallback: false,
   },
   {
-    id: 31,
+    id: 4,
     src: event4,
     emoji: '🎈',
     label: 'Special Celebration',
@@ -568,6 +216,56 @@ const photos = reactive([
     category: 'events',
     categoryIcon: '🎉',
     categoryLabel: 'Events',
+    size: '',
+    fallback: false,
+  },
+
+  // ── Nature & Birds (4) ─────────────────────────────
+  {
+    id: 5,
+    src: nature1,
+    emoji: '🐦',
+    label: 'Morning Birdsong',
+    gradient: 'linear-gradient(135deg,#2d5a3d,#4a8c5c)',
+    category: 'nature',
+    categoryIcon: '🐦',
+    categoryLabel: 'Nature & Birds',
+    size: 'wide',
+    fallback: false,
+  },
+  {
+    id: 6,
+    src: nature2,
+    emoji: '🌿',
+    label: 'Garden Trails',
+    gradient: 'linear-gradient(135deg,#3d6b4f,#5a9970)',
+    category: 'nature',
+    categoryIcon: '🐦',
+    categoryLabel: 'Nature & Birds',
+    size: '',
+    fallback: false,
+  },
+  {
+    id: 7,
+    src: nature3,
+    emoji: '🦜',
+    label: 'Colourful Visitors',
+    gradient: 'linear-gradient(135deg,#c9a84c,#e8c97a)',
+    category: 'nature',
+    categoryIcon: '🐦',
+    categoryLabel: 'Nature & Birds',
+    size: 'tall',
+    fallback: false,
+  },
+  {
+    id: 8,
+    src: nature4,
+    emoji: '🌳',
+    label: 'Eco Village Grounds',
+    gradient: 'linear-gradient(135deg,#2d5a3d,#1a3a2a)',
+    category: 'nature',
+    categoryIcon: '🐦',
+    categoryLabel: 'Nature & Birds',
     size: '',
     fallback: false,
   },

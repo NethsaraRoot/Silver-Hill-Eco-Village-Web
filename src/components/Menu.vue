@@ -116,22 +116,24 @@
               <button class="modal-close" @click="closeModal">&#x2715;</button>
             </div>
 
-            <!-- Modal Body — name + description + details -->
+            <!-- Modal Body — name + (optional) description + details -->
             <div class="modal-body">
               <h3 class="modal-title">{{ selectedItem.name }}</h3>
 
-              <p class="modal-description">{{ selectedItem.description }}</p>
+              <p v-if="selectedItem.description" class="modal-description">
+                {{ selectedItem.description }}
+              </p>
 
-              <div class="modal-divider"></div>
+              <div v-if="selectedItem.detail" class="modal-divider"></div>
 
-              <div class="modal-details-grid">
+              <div v-if="selectedItem.detail" class="modal-details-grid">
                 <div v-for="(val, key) in selectedItem.detail" :key="key" class="modal-detail-item">
                   <div class="modal-detail-label">{{ formatKey(key) }}</div>
                   <div class="modal-detail-val">{{ val }}</div>
                 </div>
               </div>
 
-              <div class="modal-note">
+              <div v-if="selectedItem.note" class="modal-note">
                 <p v-html="selectedItem.note"></p>
               </div>
             </div>
@@ -143,9 +145,6 @@
 </template>
 
 <script>
-// ── Local image imports (place your files inside src/assets/) ──
-// Oyage real image files dala mehi filename witharak wenas karanna,
-// variable names (ph, ph1, ph2...) ekama tiyaganna puluwan.
 import ph from '../assets/foods/11.png'
 import ph1 from '../assets/foods/2.png'
 import ph2 from '../assets/foods/8.png'
@@ -154,6 +153,14 @@ import ph4 from '../assets/foods/1.png'
 import ph5 from '../assets/foods/1.png'
 import ph6 from '../assets/foods/1.png'
 import ph7 from '../assets/foods/1.png'
+
+// (Beverages)
+import dr1 from '../assets/Beverages/iced coffee.png'
+import dr2 from '../assets/Beverages/lime juice.png'
+import dr3 from '../assets/Beverages/watermelon.png'
+import dr4 from '../assets/Beverages/papaya.png'
+import dr5 from '../assets/Beverages/lemon.png'
+import dr6 from '../assets/Beverages/mango.png'
 
 export default {
   name: 'RestaurantMenu',
@@ -168,6 +175,7 @@ export default {
         { key: 'all', icon: '🌿', label: 'All Items' },
         { key: 'morning', icon: '🌅', label: 'Breakfast' },
         { key: 'main', icon: '🍛', label: 'Lunch & Dinner' },
+        { key: 'drinks', icon: '🥤', label: 'Beverages' },
       ],
 
       cards: [
@@ -300,6 +308,22 @@ export default {
               },
               note: '<strong>Preparation:</strong> Marinated for a minimum of 12 hours in fresh herbs. Grilled to order — please allow 20 minutes.',
             },
+          ],
+        },
+
+        {
+          id: 'beverages',
+          category: 'drinks',
+          icon: '🥤',
+          type: 'Refreshments',
+          heading: 'Beverages Menu',
+          items: [
+            { name: 'Iced Coffee', img: dr1 },
+            { name: 'Lime Juice', img: dr2 },
+            { name: 'Watermelon juice', img: dr3 },
+            { name: 'Papaya Juice', img: dr4 },
+            { name: 'Lemon Juice', img: dr5 },
+            { name: 'Mango Juice', img: dr6 },
           ],
         },
       ],
