@@ -33,106 +33,34 @@
             </div>
           </div>
         </div>
-
-        <!-- Contact Form -->
-        <div class="contact-form-wrap reveal reveal-right reveal-delay-2">
-          <form class="contact-form" @submit.prevent="submitForm">
-            <h3>Send Us a Message</h3>
-            <p class="form-sub">We'll get back to you within 24 hours</p>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label>Your Name</label>
-                <input v-model="form.name" type="text" placeholder="John Doe" required />
-              </div>
-              <div class="form-group">
-                <label>Your Email</label>
-                <input v-model="form.email" type="email" placeholder="john@example.com" required />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Subject</label>
-              <select v-model="form.subject">
-                <option value="">Select a topic</option>
-                <option>Table Reservation</option>
-                <option>Food Order</option>
-                <option>Event Booking</option>
-                <option>General Inquiry</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Your Message</label>
-              <textarea v-model="form.message" placeholder="Tell us what you need..." rows="5" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary submit-btn" :class="{ sending: isSending }">
-              <span v-if="!sent">Send Message ✉️</span>
-              <span v-else>Message Sent! ✅</span>
-            </button>
-
-            <transition name="fade-up">
-              <div class="success-msg" v-if="sent">
-                🎉 Thank you! We'll contact you soon.
-              </div>
-            </transition>
-          </form>
-        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
-
-const isSending = ref(false)
-const sent = ref(false)
-
-const form = reactive({
-  name: '',
-  email: '',
-  subject: '',
-  message: ''
-})
-
 const contactInfo = [
   {
     icon: '📍',
     title: 'Location',
-    lines: ['No. 123, Main Street', 'Your City, Sri Lanka']
+    lines: ['No. 123, Main Street', 'Your City, Sri Lanka'],
   },
   {
     icon: '📞',
     title: 'Phone',
-    lines: ['077 123 4567', '071 234 5678']
+    lines: ['077 123 4567', '071 234 5678'],
   },
   {
     icon: '✉️',
     title: 'Email',
-    lines: ['info@himamarestaurant.lk', 'himamarestaurant.lk']
+    lines: ['info@himamarestaurant.lk', 'himamarestaurant.lk'],
   },
   {
     icon: '🕐',
     title: 'Open Hours',
-    lines: ['Mon - Sun', '10:00 AM - 10:00 PM']
-  }
+    lines: ['Mon - Sun', '10:00 AM - 10:00 PM'],
+  },
 ]
-
-const submitForm = async () => {
-  isSending.value = true
-  await new Promise(r => setTimeout(r, 1500))
-  isSending.value = false
-  sent.value = true
-  setTimeout(() => {
-    sent.value = false
-    form.name = ''
-    form.email = ''
-    form.subject = ''
-    form.message = ''
-  }, 3000)
-}
 </script>
 
 <style scoped>
@@ -171,9 +99,9 @@ const submitForm = async () => {
 /* Grid */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 3rem;
-  align-items: start;
+  grid-template-columns: 1fr;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 /* Info Cards */
@@ -191,7 +119,9 @@ const submitForm = async () => {
   padding: 1.2rem 1.4rem;
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .info-card:hover {
@@ -235,7 +165,10 @@ const submitForm = async () => {
   color: white;
 }
 
-.map-pin { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.map-pin {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+}
 
 .map-placeholder p {
   opacity: 0.9;
@@ -254,113 +187,13 @@ const submitForm = async () => {
   transition: opacity 0.2s;
 }
 
-.map-link:hover { opacity: 0.7; }
-
-/* Form */
-.contact-form-wrap {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 2.5rem;
-  box-shadow: var(--shadow-md);
-}
-
-.contact-form h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: var(--green-dark);
-  margin-bottom: 0.3rem;
-}
-
-.form-sub {
-  color: var(--text-light);
-  font-size: 0.85rem;
-  margin-bottom: 2rem;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1.2rem;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--green-dark);
-  margin-bottom: 0.4rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 2px solid #e8e8e8;
-  border-radius: 8px;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
-  color: var(--text-dark);
-  background: var(--cream);
-  transition: border-color 0.3s, box-shadow 0.3s;
-  outline: none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: var(--green-mid);
-  box-shadow: 0 0 0 3px rgba(45,90,61,0.1);
-  background: white;
-}
-
-.form-group textarea { resize: vertical; }
-
-.submit-btn {
-  width: 100%;
-  justify-content: center;
-  padding: 1rem;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  transition: background 0.3s, transform 0.2s, opacity 0.3s;
-}
-
-.submit-btn.sending {
+.map-link:hover {
   opacity: 0.7;
-  cursor: wait;
-}
-
-/* Success */
-.success-msg {
-  text-align: center;
-  margin-top: 1rem;
-  padding: 0.8rem;
-  background: #e8f5e9;
-  border-radius: 8px;
-  color: var(--green-dark);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.fade-up-enter-active, .fade-up-leave-active {
-  transition: all 0.4s ease;
-}
-.fade-up-enter-from {
-  opacity: 0;
-  transform: translateY(10px);
-}
-.fade-up-leave-to {
-  opacity: 0;
 }
 
 @media (max-width: 900px) {
-  .contact-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

@@ -28,7 +28,7 @@
         class="nav-reserve"
       >
         <span>BOOK NOW</span>
-        
+
       </a>
 
       <!-- Mobile Burger -->
@@ -45,13 +45,13 @@
     <!-- Mobile Menu -->
     <transition name="fade-down">
       <div class="mobile-menu" v-if="menuOpen">
-        <a
+
           v-for="link in navLinks"
           :key="link.id"
           :href="`#${link.id}`"
           :class="['mobile-link', { active: activeSection === link.id }]"
           @click.prevent="mobileNav(link.id)"
-        >
+        <a>
           <span class="mobile-link__dot"></span>
           {{ link.label }}
         </a>
@@ -230,9 +230,64 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 .nav-logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   flex-shrink: 0;
+  position: relative;
   animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Glowing green ring around the logo */
+.nav-logo-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 96px;
+  height: 96px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgba(46, 231, 22, 0.55);
+  box-shadow:
+    0 0 0 4px rgba(46, 231, 22, 0.08),
+    0 0 18px rgba(46, 231, 22, 0.45),
+    0 0 34px rgba(14, 218, 48, 0.25);
+  pointer-events: none;
+  transition:
+    width 0.4s ease,
+    height 0.4s ease,
+    opacity 0.4s ease,
+    box-shadow 0.4s ease;
+  animation: ringPulse 3.2s ease-in-out infinite;
+}
+
+.navbar.scrolled .nav-logo-ring {
+  width: 46px;
+  height: 46px;
+  border-color: rgba(25, 189, 47, 0.5);
+  box-shadow:
+    0 0 0 3px rgba(25, 189, 47, 0.1),
+    0 0 12px rgba(25, 189, 47, 0.4),
+    0 0 22px rgba(25, 189, 47, 0.2);
+}
+
+.nav-logo:hover .nav-logo-ring {
+  border-color: rgba(46, 231, 22, 0.85);
+  box-shadow:
+    0 0 0 5px rgba(46, 231, 22, 0.12),
+    0 0 26px rgba(46, 231, 22, 0.6),
+    0 0 46px rgba(14, 218, 48, 0.35);
+}
+
+@keyframes ringPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.06);
+    opacity: 1;
+  }
 }
 
 .nav-logo-img {
@@ -240,6 +295,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   width: auto;
   object-fit: contain;
   display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
   transition:
     height 0.4s ease,
     filter 0.4s ease;
@@ -595,6 +653,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   .navbar.scrolled .nav-logo-img {
     height: 34px;
   }
+  .nav-logo-ring {
+    width: 50px;
+    height: 50px;
+  }
+  .navbar.scrolled .nav-logo-ring {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -622,6 +688,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   }
   .nav-container {
     padding: 14px 20px;
+  }
+  .nav-logo-ring {
+    width: 46px;
+    height: 46px;
+  }
+  .navbar.scrolled .nav-logo-ring {
+    width: 36px;
+    height: 36px;
   }
 }
 </style>
