@@ -28,7 +28,6 @@
         class="nav-reserve"
       >
         <span>BOOK NOW</span>
-
       </a>
 
       <!-- Mobile Burger -->
@@ -45,13 +44,13 @@
     <!-- Mobile Menu -->
     <transition name="fade-down">
       <div class="mobile-menu" v-if="menuOpen">
-
+        <a
           v-for="link in navLinks"
           :key="link.id"
           :href="`#${link.id}`"
           :class="['mobile-link', { active: activeSection === link.id }]"
           @click.prevent="mobileNav(link.id)"
-        <a>
+        >
           <span class="mobile-link__dot"></span>
           {{ link.label }}
         </a>
