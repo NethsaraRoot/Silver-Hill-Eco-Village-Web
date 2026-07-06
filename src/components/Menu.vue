@@ -150,9 +150,7 @@ import ph1 from '../assets/foods/2.png'
 import ph2 from '../assets/foods/8.png'
 import ph3 from '../assets/foods/10.png'
 import ph4 from '../assets/foods/1.png'
-import ph5 from '../assets/foods/1.png'
-import ph6 from '../assets/foods/1.png'
-import ph7 from '../assets/foods/1.png'
+import ph5 from '../assets/foods/9.png'
 
 // (Beverages)
 import dr1 from '../assets/Beverages/iced coffee.png'
@@ -161,6 +159,11 @@ import dr3 from '../assets/Beverages/watermelon.png'
 import dr4 from '../assets/Beverages/papaya.png'
 import dr5 from '../assets/Beverages/lemon.png'
 import dr6 from '../assets/Beverages/mango.png'
+
+// (Snacks)
+import sn1 from '../assets/Snacks/Roti Roast.png'
+import sn2 from '../assets/Snacks/Stuffed Roti Sandwich.png'
+import sn3 from '../assets/Snacks/Chunky Roti Stir Fry.png'
 
 export default {
   name: 'RestaurantMenu',
@@ -175,6 +178,7 @@ export default {
         { key: 'all', icon: '🌿', label: 'All Items' },
         { key: 'morning', icon: '🌅', label: 'Breakfast' },
         { key: 'main', icon: '🍛', label: 'Lunch & Dinner' },
+        { key: 'snacks', icon: '🍳', label: 'Snacks' },
         { key: 'drinks', icon: '🥤', label: 'Beverages' },
       ],
 
@@ -253,9 +257,9 @@ export default {
           heading: 'Lunch & Dinner Menu',
           items: [
             {
-              name: 'Steamed Sri Lankan Rice',
+              name: 'Fried Rice',
               description:
-                'Freshly prepared traditional Sri Lankan rice cooked daily with aromatic pandan leaves and a touch of coconut oil.',
+                'Fresh Sri Lankan rice with grilled chicken, chili paste, and rich gravy.',
               tags: ['Fresh Daily', 'Traditional'],
               img: ph4,
               detail: {
@@ -267,9 +271,9 @@ export default {
               note: '<strong>Daily Fresh:</strong> Our rice is cooked in batches throughout the day. We use locally grown red raw rice for authentic flavour.',
             },
             {
-              name: 'Three Village Vegetable Curries',
+              name: 'Rice and Curry',
               description:
-                'Authentic village-style vegetable curries prepared with local herbs and spices, served with coconut milk gravy.',
+                'Traditional Sri Lankan rice served with three village vegetables, meat, and papadam or fresh kola mallum.',
               tags: ['Healthy', 'Village Vegetables'],
               img: ph5,
               detail: {
@@ -280,33 +284,51 @@ export default {
               },
               note: '<strong>Seasonal Harvest:</strong> Our vegetable selection changes with the season to bring you the freshest village produce available.',
             },
+          ],
+        },
+
+        {
+          id: 'snacks',
+          category: 'snacks',
+          icon: '🍳',
+          type: 'Served 12 PM – 3 PM Only',
+          heading: 'Snacks Menu',
+          items: [
             {
-              name: 'Traditional Meat Curry',
+              name: 'Roti Roast with Egg Crown',
               description:
-                'Rich and flavorful Sri Lankan meat curry with homemade spices, slow-cooked to perfection with roasted coconut.',
-              tags: ['Spicy', 'Homemade Recipe'],
-              img: ph6,
+                'Golden roasted roti topped with spiced eggs. A humble village treat fit for a king.',
+              img: sn1,
               detail: {
-                servingTime: '12:00 PM – 9:00 PM',
-                style: 'Slow Cooked',
-                spiceLevel: 'Hot',
-                allergens: 'Gluten-free',
+                servingTime: '12:00 PM – 3:00 PM',
+                style: 'Village Style',
+                spiceLevel: 'Medium',
+                allergens: 'Contains Egg, Gluten',
               },
-              note: "<strong>Chef's Signature:</strong> Slow-cooked for 3+ hours using a blend of 14 hand-ground spices. A true village heirloom recipe.",
             },
             {
-              name: 'Grilled Chicken',
+              name: 'Stuffed Roti Sandwich Delight',
               description:
-                'Juicy grilled chicken marinated with authentic Sri Lankan herbs and spices, charcoal-grilled over open flame.',
-              tags: ['Chef Special', 'Authentic Spices'],
-              img: ph7,
+                'Crispy coconut roti filled with savory potatoes and garden greens. A quick, satisfying bite.',
+              img: sn2,
               detail: {
-                servingTime: '12:00 PM – 9:00 PM',
-                style: 'Charcoal Grilled',
-                spiceLevel: 'Medium – Hot',
-                allergens: 'Gluten-free',
+                servingTime: '12:00 PM – 3:00 PM',
+                style: 'Snack Style',
+                spiceLevel: 'Mild – Medium',
+                allergens: 'Contains Coconut, Gluten',
               },
-              note: '<strong>Preparation:</strong> Marinated for a minimum of 12 hours in fresh herbs. Grilled to order — please allow 20 minutes.',
+            },
+            {
+              name: 'Chunky Roti Stir Fry',
+              description:
+                'Hand torn pieces of roti stir fried with egg, garden greens, and veggies.',
+              img: sn3,
+              detail: {
+                servingTime: '12:00 PM – 3:00 PM',
+                style: 'Stir Fried',
+                spiceLevel: 'Medium',
+                allergens: 'Contains Egg, Gluten',
+              },
             },
           ],
         },
